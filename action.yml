@@ -10,8 +10,8 @@ runs:
   image: 'docker://jupyter/minimal-notebook:latest'
   entrypoint: "bash"
   args:
-    - |
-      echo 'BLAH' >&2
+    - -c
+    - echo 'BLAH' 
 
 
 
