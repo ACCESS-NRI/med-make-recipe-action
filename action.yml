@@ -11,9 +11,8 @@ runs:
   entrypoint: "bash"
   args:
     - |
-      echo BLAH >> $GITHUB_OUTPUT &&
-      jupyter nbconvert --to pdf ${{ inputs.paper-path }}
-
+      echo 'BLAH' >> $GITHUB_OUTPUT 
+      pwd >> $GITHUB_OUTPUT
 #&& mv /home/jovyan/work/*.pdf /github/workspace/
 
 
