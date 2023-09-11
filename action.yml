@@ -11,7 +11,10 @@ runs:
   entrypoint: "bash"
   args:
     - -c
-    - echo 'BLAH' 
+    - |
+      echo 'BLAH';
+      pwd >> a.txt
+      echo "$( < a.txt )"
 
 
 
