@@ -11,9 +11,7 @@ runs:
   entrypoint: "bash"
   args: 
     - |
-      cp "${{ inputs.paper-path }}" /home/jovyan/work/
-      cd /home/jovyan/work
-      jupyter nbconvert --to pdf "$(basename "${{ inputs.paper-path }}")"
+      jupyter nbconvert --to pdf "${{ inputs.paper-path }}"
 
 #&& mv /home/jovyan/work/*.pdf /github/workspace/
 
