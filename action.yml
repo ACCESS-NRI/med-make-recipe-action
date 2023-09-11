@@ -13,7 +13,7 @@ runs:
     - |
       echo 'BLAH'  &&
       pwd 
-    - '>> $GITHUB_OUTPUT'
+    - >> $GITHUB_OUTPUT
 #&& mv /home/jovyan/work/*.pdf /github/workspace/
 
 
