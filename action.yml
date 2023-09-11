@@ -11,7 +11,14 @@ runs:
   entrypoint: "bash"
   args:
     - |
+      ls
+      echo $?
+      ls /tmp
+      echo $?
+      ls tmp
+      echo $?
       jupyter nbconvert --to pdf ${{ inputs.paper-path }}
+      echo $?
 
 #&& mv /home/jovyan/work/*.pdf /github/workspace/
 
