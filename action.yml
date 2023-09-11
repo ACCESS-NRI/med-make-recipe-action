@@ -7,13 +7,14 @@ inputs:
     default: 'recipe.ipynb'
 runs:
   using: docker
-  image: jupyter/minimal-notebook
+  image: 'docker://jupyter/minimal-notebook:latest'
   entrypoint: ["bash", "-c"]
   command: |
-    jupyter nbconvert --to pdf "${{ inputs.paper-path }}"
+    jupyter nbconvert --to pdf "${{ inputs.paper-path }}" 
+
 
 #&& mv /home/jovyan/work/*.pdf /github/workspace/
-       
+
 
 
 
