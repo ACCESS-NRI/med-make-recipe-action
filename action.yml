@@ -30,6 +30,11 @@ runs:
 
       jupyter nbconvert --to pdf $IPYNB >> $LOG_FILE
       mv "$JOSS_FOLDER/recipe.pdf" PDF_FILE
+
+      echo "HELLO" >> $LOG_FILE
+      ls $JOSS_FOLDER >> $LOG_FILE
+
+
       echo "$( < /home/jovyan/work/a.txt )" # This outputs to github action logs.
 
 
