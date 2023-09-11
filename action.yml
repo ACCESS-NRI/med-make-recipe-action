@@ -12,8 +12,7 @@ runs:
   args:
     - -c
     - |
-      echo 'BLAH';
-      pwd >> /home/jovyan/work/a.txt
+      jupyter nbconvert --to pdf ${{ paper-oath }} >> /home/jovyan/work/a.txt
       echo "$( < /home/jovyan/work/a.txt )"
 
 
