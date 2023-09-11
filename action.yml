@@ -23,6 +23,11 @@ runs:
       echo $JOSS_FOLDER >> $LOG_FILE
       echo $IPYNB_FILE >> $LOG_FILE
       echo $PDF_FILE >> $LOG_FILE
+
+      ls / >> $LOG_FILE
+      echo "HELLO" >> $LOG_FILE
+      ls $JOSS_FOLDER >> $LOG_FILE
+
       jupyter nbconvert --to pdf $IPYNB >> $LOG_FILE
       mv "$JOSS_FOLDER/recipe.pdf" PDF_FILE
       echo "$( < /home/jovyan/work/a.txt )" # This outputs to github action logs.
