@@ -8,10 +8,14 @@ inputs:
 runs:
   using: docker
   image: 'docker://jupyter/minimal-notebook:latest'
-  entrypoint: ["bash", "-c"]
-  command: |
-    jupyter nbconvert --to pdf "${{ inputs.paper-path }}" 
-
+  entrypoint: "bash"
+  args: 
+    - /bin/bash
+    - -c
+    - |
+      cp "${{ inputs.paper-path }}" /home/jovyan/work/
+      cd /home/jovyan/work
+      jupyter nbconvert --to pdf "$(basename "${{ inputs.paper-path }}")"
 
 #&& mv /home/jovyan/work/*.pdf /github/workspace/
 
