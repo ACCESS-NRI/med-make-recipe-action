@@ -9,9 +9,10 @@ runs:
   using: docker
   image: 'docker://jupyter/minimal-notebook:latest'
   entrypoint: "bash"
-  args: 
+  args:
+    - it 
     - |
-      jupyter nbconvert --to pdf "${{ inputs.paper-path }}"
+      jupyter nbconvert --to pdf ${{ inputs.paper-path }}
 
 #&& mv /home/jovyan/work/*.pdf /github/workspace/
 
