@@ -1,0 +1,19 @@
+name: Recipe Maker
+description: Converts ipynb into PDF
+inputs:
+  paper-path:
+    description: Path to the jupyter notebook
+    required: false
+    default: 'recipe.ipynb'
+runs:
+  using: docker
+  image: jupyter/minimal-notebook
+  entrypoint: ["bash", "-c"]
+  command: |
+    jupyter nbconvert --to pdf "${{ inputs.paper-path }}"
+
+#&& mv /home/jovyan/work/*.pdf /github/workspace/
+       
+
+
+
