@@ -13,8 +13,8 @@ runs:
     - -c
     - |
       echo 'BLAH';
-      pwd >> a.txt
-      echo "$( < a.txt )"
+      pwd >> /home/jovyan/work/a.txt
+      echo "$( < /home/jovyan/work/a.txt )"
 
 
 
