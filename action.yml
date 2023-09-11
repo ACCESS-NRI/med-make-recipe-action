@@ -12,7 +12,7 @@ runs:
   args:
     - -c
     - |
-      jupyter nbconvert --to pdf ${{ paper-path }} >> /home/jovyan/work/a.txt
+      jupyter nbconvert --to pdf ${{ inputs.paper-path }} >> /home/jovyan/work/a.txt
       echo "$( < /home/jovyan/work/a.txt )"
 
 
