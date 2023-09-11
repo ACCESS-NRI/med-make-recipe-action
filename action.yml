@@ -11,8 +11,9 @@ runs:
   entrypoint: "bash"
   args:
     - |
-      echo 'BLAH' >> $GITHUB_OUTPUT 
-      pwd >> $GITHUB_OUTPUT
+      echo 'BLAH'  &&
+      pwd 
+    - '>> $GITHUB_OUTPUT'
 #&& mv /home/jovyan/work/*.pdf /github/workspace/
 
 
