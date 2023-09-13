@@ -54,6 +54,6 @@ runs:
       ls $JOVYAN_FOLDER >> $LOG_FILE
 
       # This prints logs
-      echo "$( < /home/jovyan/work/a.txt )" # This outputs to github action logs.
+      echo "$( < /home/jovyan/work/med-make-recipe-action.log )" # This outputs to github action logs.
 
 
