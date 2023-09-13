@@ -9,9 +9,7 @@ runs:
   using: docker
   image: 'docker://jupyter/minimal-notebook:latest'
   entrypoint: "bash"
-  options: --user root
   args:
-    - --user root # needed for saving the file back
     - -c # needed for logging
     - |
       # file found by joss called paper.md
@@ -57,5 +55,6 @@ runs:
 
       # This prints logs
       echo "$( < /home/jovyan/work/med-make-recipe-action.log )" # This outputs to github action logs.
-
+  container:
+    user: root
 
