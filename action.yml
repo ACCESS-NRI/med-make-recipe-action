@@ -12,31 +12,48 @@ runs:
   args:
     - -c # needed for logging
     - |
-      JOSS_PATH=${{ inputs.paper-path }};
-      JOSS_FOLDER="$(readlink -f "$(dirname "${{ inputs.paper-path }}")")"
-      IPYNB_FILE="$JOSS_FOLDER/recipe.ipynb"
-      PDF_FILE="$JOSS_FOLDER/paper.pdf"
+      # file found by joss called paper.md
+      JOSS_PATH="${{ inputs.paper-path }}"
+      # The folder with all files from the github repo
+      ACTION_FOLDER ="$(readlink -f "$(dirname "JOSS_PATH")")"
+      # Working dir for docker container
+      JOVYAN_FOLDER = "/home/jovyan/work"
+      
+      ACTION_IPYNB_FILE="$ACTION_FOLDER/recipe.ipynb"
+      JOVYAN_IPYNB_FILE="$JOVYAN_FOLDER/recipe.ipynb"
 
-      LOG_FILE="/home/jovyan/work/a.txt"
+      JOVYAN_PDF_FILE="$ACTION_FOLDER/recipe.pdf"
+      ACTION_PDF_FILE="$ACTION_FOLDER/paper.pdf
+
+      LOG_FILE="/home/jovyan/work/med-make-recipe-action.log"
+
+      # To help debugging:
       touch $LOG_FILE
       echo $JOSS_PATH >> $LOG_FILE
-      echo $JOSS_FOLDER >> $LOG_FILE
-      echo $IPYNB_FILE >> $LOG_FILE
-      echo $PDF_FILE >> $LOG_FILE
+      echo $ACTION_FOLDER >> $LOG_FILE
+      echo $JOVYAN_FOLDER >> $LOG_FILE
+      echo $ACTION_IPYNB_FILE >> $LOG_FILE
+      echo $JOVYAN_IPYNB_FILE >> $LOG_FILE
+      echo $JOVYAN_PDF_FILE >> $LOG_FILE
+      echo $ACTION_PDF_FILE >> $LOG_FILE
+      
+      echo "ACTION_FOLDER" >> $LOG_FILE
+      ls $ACTION_FOLDER >> $LOG_FILE
+      echo "JOVYAN_FOLDER" >> $LOG_FILE
+      ls $JOVYAN_FOLDER >> $LOG_FILE
 
-      ls / >> $LOG_FILE
-      echo "HELLO" >> $LOG_FILE
-      ls $JOSS_FOLDER >> $LOG_FILE
+      # The commands which actually matter:
+      cp $ACTION_IPYNB_FILE $JOVYAN_IPYNB_FILE
+      jupyter nbconvert --to pdf $JOVYAN_IPYNB_FILE >> $LOG_FILE
+      mv $JOVYAN_PDF_FILE $ACTION_PDF_FILE
+   
+      #more debugging
+      echo "ACTION_FOLDER" >> $LOG_FILE
+      ls $ACTION_FOLDER >> $LOG_FILE
+      echo "JOVYAN_FOLDER" >> $LOG_FILE
+      ls $JOVYAN_FOLDER >> $LOG_FILE
 
-      jupyter nbconvert --to pdf $IPYNB >> $LOG_FILE
-      mv "$JOSS_FOLDER/recipe.pdf" PDF_FILE
-
-      echo "HELLO" >> $LOG_FILE
-      ls $JOSS_FOLDER >> $LOG_FILE
-
-
+      # This prints logs
       echo "$( < /home/jovyan/work/a.txt )" # This outputs to github action logs.
-
-
 
 
