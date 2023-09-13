@@ -23,7 +23,7 @@ runs:
       JOVYAN_IPYNB_FILE="$JOVYAN_FOLDER/recipe.ipynb"
 
       JOVYAN_PDF_FILE="$ACTION_FOLDER/recipe.pdf"
-      ACTION_PDF_FILE="$ACTION_FOLDER/paper.pdf
+      ACTION_PDF_FILE="$ACTION_FOLDER/paper.pdf"
 
       LOG_FILE="/home/jovyan/work/med-make-recipe-action.log"
 
