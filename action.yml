@@ -15,7 +15,7 @@ runs:
       # file found by joss called paper.md
       JOSS_PATH="${{ inputs.paper-path }}"
       # The folder with all files from the github repo
-      ACTION_FOLDER="$(readlink -f "$(dirname "JOSS_PATH")")"
+      ACTION_FOLDER="$(readlink -f "$(dirname "$JOSS_PATH")")"
       # Working dir for docker container
       JOVYAN_FOLDER="/home/jovyan/work"
       
