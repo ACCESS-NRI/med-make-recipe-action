@@ -34,8 +34,8 @@ runs:
       echo $JOVYAN_FOLDER >> $LOG_FILE
       echo $ACTION_IPYNB_FILE >> $LOG_FILE
       echo $JOVYAN_IPYNB_FILE >> $LOG_FILE
-      echo $JOVYAN_PDF_FILE >> $LOG_FILE
       echo $ACTION_PDF_FILE >> $LOG_FILE
+      echo $JOVYAN_PDF_FILE >> $LOG_FILE
       
       echo "ACTION_FOLDER" >> $LOG_FILE
       ls $ACTION_FOLDER >> $LOG_FILE
@@ -43,9 +43,9 @@ runs:
       ls $JOVYAN_FOLDER >> $LOG_FILE
 
       # The commands which actually matter:
-      cp $ACTION_IPYNB_FILE $JOVYAN_IPYNB_FILE;
-      #jupyter nbconvert --to pdf $JOVYAN_IPYNB_FILE >> $LOG_FILE;
-      mv $JOVYAN_PDF_FILE $ACTION_PDF_FILE;
+      cp $ACTION_IPYNB_FILE $JOVYAN_IPYNB_FILE
+      jupyter nbconvert --to pdf $JOVYAN_IPYNB_FILE >> $LOG_FILE
+      mv $JOVYAN_PDF_FILE $ACTION_PDF_FILE
    
       #more debugging
       echo "ACTION_FOLDER" >> $LOG_FILE
