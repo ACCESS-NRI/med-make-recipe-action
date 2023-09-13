@@ -44,7 +44,7 @@ runs:
 
       # The commands which actually matter:
       cp $ACTION_IPYNB_FILE $JOVYAN_IPYNB_FILE;
-      jupyter nbconvert --to pdf $JOVYAN_IPYNB_FILE >> $LOG_FILE;
+      #jupyter nbconvert --to pdf $JOVYAN_IPYNB_FILE >> $LOG_FILE;
       mv $JOVYAN_PDF_FILE $ACTION_PDF_FILE;
    
       #more debugging
