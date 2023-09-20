@@ -1,0 +1,33 @@
+name: ACCESS-NRI Med Portal Publishing Artifacts
+description: Create PDF and XML files for a Med Portal Recipe
+inputs:
+  journal:
+    description: Plase specify "joss" or nothing.
+    required: false
+    default: joss
+  paper-path:
+    description: >-
+        Path to the main paper Markdown file, relative to the
+        project's root directory.
+    required: false
+    default: 'paper.md'
+  args:
+    description: |
+      Arguments to be passed to the openjournals/inara
+      Options:
+        -m ARTICLE_INFO_FILE    path to the article's metadata info file
+        -o OUTPUT_FORMATS       output formats (html/pdf/jats/crossref)
+    required: false
+    default: ''
+runs:
+  using: docker
+  image: 'Dockerfile'
+  env:
+    GIT_SHA: $GITHUB_SHA
+    JOURNAL: ${{ inputs.journal }}
+  args:
+    - ${{ inputs.args }}
+    - ${{ inputs.paper-path }}
+branding:
+  icon: file-text
+  color: blue
