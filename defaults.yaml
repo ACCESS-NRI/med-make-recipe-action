@@ -1,0 +1,31 @@
+csl: apa.csl
+
+metadata:
+  joss_resource_url: 'N/A'
+  journal:
+    abbrev-title: 'JOSS'
+    alias: 'joss'
+    url: 'https://joss.theoj.org/'
+    doi: '10.21105/joss'
+    title: 'ACCESS-NRI MED Portal'
+    publisher-name: 'Open Journals'
+    issn: '2475-9066'
+    eissn: '2475-9066'
+
+  link-citations: true
+  
+  copyright:
+    statement: >-
+      Authors of papers retain copyright and release the work under a
+      Creative Commons Attribution 4.0 International License (CC BY 4.0)
+    holder: The article authors
+    year: 2022
+    type: open-access
+    link: https://creativecommons.org/licenses/by/4.0/
+    text: >-
+      Authors of papers retain copyright and release the work under a
+      Creative Commons Attribution 4.0 International License (CC BY 4.0)
+
+  aas_logo_path: 'joss/aas-logo.png'
+  europar_logo_path: 'joss/europar-logo.png'
+  logo_path: 'joss/logo.png'
